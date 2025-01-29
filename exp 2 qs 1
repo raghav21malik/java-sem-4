@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class StudentGrade {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter marks for Subject 1: ");
+        int sub1 = sc.nextInt();
+        System.out.print("Enter marks for Subject 2: ");
+        int sub2 = sc.nextInt();
+        System.out.print("Enter marks for Subject 3: ");
+        int sub3 = sc.nextInt();
+        
+        double avg = (sub1 + sub2 + sub3) / 3.0;
+        
+        if (avg >= 90) {
+            System.out.println("Grade A");
+        } else if (avg >= 75) {
+            System.out.println("Grade B");
+        } else if (avg >= 50) {
+            System.out.println("Grade C");
+        } else {
+            System.out.println("Grade F");
+        }
+        
+        sc.close();
+    }
+}
+
