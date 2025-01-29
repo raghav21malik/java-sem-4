@@ -1,0 +1,29 @@
+class University {
+    static String universityName = "ABC University";
+    String studentName;
+
+    // Constructor
+    public University(String studentName) {
+        this.studentName = studentName;
+    }
+
+    // Static method to display university name
+    static void displayUniversity() {
+        System.out.println("University Name: " + universityName);
+    }
+
+    // Non-static method to display student details
+    public void displayStudent() {
+        System.out.println("Student Name: " + studentName);
+    }
+
+    public static void main(String[] args) {
+        University.displayUniversity();
+        
+        University student1 = new University("Raghav");
+        University student2 = new University("Amit");
+
+        student1.displayStudent();
+        student2.displayStudent();
+    }
+}
