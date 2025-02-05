@@ -1,0 +1,82 @@
+class Vehicle {
+    String brand;
+    String model;
+    double price;
+
+    Vehicle(String b, String m, double p) {
+        brand = b;
+        model = m;
+        price = p;
+    }
+
+    void displayDetails() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Price: Rs." + price);
+    }
+}
+
+class Car extends Vehicle {
+    int seatingCapacity;
+    String fuelType;
+
+    Car(String b, String m, double p, int s, String f) {
+        super(b, m, p);
+        seatingCapacity = s;
+        fuelType = f;
+    }
+
+    void displayDetails() {
+        super.displayDetails();
+        System.out.println("Seating Capacity: " + seatingCapacity);
+        System.out.println("Fuel Type: " + fuelType);
+    }
+}
+
+class ElectricCar extends Car {
+    int batteryCapacity;
+    int chargingTime;
+
+    ElectricCar(String b, String m, double p, int s, String f, int bc, int ct) {
+        super(b, m, p, s, f);
+        batteryCapacity = bc;
+        chargingTime = ct;
+    }
+
+    void displayDetails() {
+        super.displayDetails();
+        System.out.println("Battery Capacity: " + batteryCapacity + " kWh");
+        System.out.println("Charging Time: " + chargingTime + " hours");
+    }
+}
+
+class Motorcycle extends Vehicle {
+    int engineCapacity;
+    String type;
+
+    Motorcycle(String b, String m, double p, int ec, String t) {
+        super(b, m, p);
+        engineCapacity = ec;
+        type = t;
+    }
+
+    void displayDetails() {
+        super.displayDetails();
+        System.out.println("Engine Capacity: " + engineCapacity + " cc");
+        System.out.println("Type: " + type);
+    }
+}
+
+public class VehicleTest {
+    public static void main(String[] args) {
+        Car car = new Car("Toyota", "Camry", 3000000, 5, "Petrol");
+        ElectricCar eCar = new ElectricCar("Tesla", "Model S", 8000000, 5, "Electric", 100, 1);
+        Motorcycle bike = new Motorcycle("Yamaha", "R1", 2000000, 998, "Sport");
+
+        car.displayDetails();
+        System.out.println();
+        eCar.displayDetails();
+        System.out.println();
+        bike.displayDetails();
+    }
+}
