@@ -1,0 +1,43 @@
+class Worker {
+    String name;
+    double salaryRate;
+
+    Worker(String name, double salaryRate) {
+        this.name = name;
+        this.salaryRate = salaryRate;
+    }
+
+    double computePay(int hours) {
+        return 0;
+    }
+}
+
+class DailyWorker extends Worker {
+    DailyWorker(String name, double salaryRate) {
+        super(name, salaryRate);
+    }
+
+    double computePay(int days) {
+        return days * 8 * salaryRate;
+    }
+}
+
+class SalariedWorker extends Worker {
+    SalariedWorker(String name, double salaryRate) {
+        super(name, salaryRate);
+    }
+
+    double computePay(int hours) {
+        return 40 * salaryRate;
+    }
+}
+
+public class WorkerTest {
+    public static void main(String[] args) {
+        DailyWorker dw = new DailyWorker("Ravi", 500);
+        SalariedWorker sw = new SalariedWorker("Amit", 600);
+
+        System.out.println("Daily Worker Pay: Rs. " + dw.computePay(5));
+        System.out.println("Salaried Worker Pay: Rs. " + sw.computePay(45));
+    }
+}
