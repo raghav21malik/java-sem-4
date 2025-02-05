@@ -1,0 +1,21 @@
+class Superclass {
+    private int privateVar = 10; // Private member
+
+    public int getPrivateVar() {
+        return privateVar; // Accessing private member through a public method
+    }
+}
+
+class Subclass extends Superclass {
+    void display() {
+        // System.out.println("Private Variable: " + privateVar); // Error: privateVar has private access in Superclass
+        System.out.println("Private Variable (accessed via method): " + getPrivateVar());
+    }
+}
+
+public class PrivateMemberDemo {
+    public static void main(String[] args) {
+        Subclass obj = new Subclass();
+        obj.display();
+    }
+}
