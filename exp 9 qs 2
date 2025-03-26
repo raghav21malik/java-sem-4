@@ -1,0 +1,29 @@
+2- 
+
+
+import java.io.*;
+import java.util.Scanner;
+
+public class WriteStudent {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter roll: ");
+        String roll = sc.nextLine();
+
+        System.out.print("Enter grade: ");
+        String grade = sc.nextLine();
+
+        try {
+            FileWriter fw = new FileWriter("student.txt", true); // append = true
+            fw.write("Name: " + name + ", Roll: " + roll + ", Grade: " + grade + "\n");
+            fw.close();
+            System.out.println("Data saved to student.txt");
+        } catch (IOException e) {
+            System.out.println("Error writing file.");
+        }
+    }
+}
