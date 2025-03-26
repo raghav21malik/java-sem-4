@@ -1,0 +1,85 @@
+// Abstract class Employee
+abstract class Employee {
+    protected String name;
+    protected String role;
+    protected double salary;
+
+    // Abstract method to calculate salary
+    public abstract void calculateSalary();
+
+    // Abstract method to display employee details
+    public abstract void displayDetails();
+}
+
+// Manager class extending Employee
+class Manager extends Employee {
+    private double fixedSalary;
+
+    // Constructor for Manager
+    public Manager(String name, double fixedSalary) {
+        this.name = name;
+        this.role = "Manager";
+        this.fixedSalary = fixedSalary;
+    }
+
+    // Implement the calculateSalary() method for Manager
+    @Override
+    public void calculateSalary() {
+        this.salary = fixedSalary;
+    }
+
+    // Implement the displayDetails() method for Manager
+    @Override
+    public void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Role: " + role);
+        System.out.println("Salary: " + salary);
+    }
+}
+
+// Developer class extending Employee
+class Developer extends Employee {
+    private double hourlyWage;
+    private int hoursWorked;
+
+    // Constructor for Developer
+    public Developer(String name, double hourlyWage, int hoursWorked) {
+        this.name = name;
+        this.role = "Developer";
+        this.hourlyWage = hourlyWage;
+        this.hoursWorked = hoursWorked;
+    }
+
+    // Implement the calculateSalary() method for Developer
+    @Override
+    public void calculateSalary() {
+        this.salary = hourlyWage * hoursWorked;
+    }
+
+    // Implement the displayDetails() method for Developer
+    @Override
+    public void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Role: " + role);
+        System.out.println("Salary: " + salary);
+    }
+}
+
+// Main class to test the functionality
+public class Main {
+    public static void main(String[] args) {
+        // Create Manager and Developer objects
+        Employee manager = new Manager("Alice", 5000.0); // Fixed salary for Manager
+        Employee developer = new Developer("Bob", 30.0, 160); // Hourly wage for Developer
+
+        // Calculate salary and display details for Manager
+        manager.calculateSalary();
+        manager.displayDetails();
+
+        System.out.println(); // Just for formatting between outputs
+
+        // Calculate salary and display details for Developer
+        developer.calculateSalary();
+        developer.displayDetails();
+    }
+}
