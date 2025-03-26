@@ -1,0 +1,76 @@
+// Interface Bank
+interface Bank {
+    // Method to deposit amount
+    void deposit(double amount);
+
+    // Method to withdraw amount
+    void withdraw(double amount);
+}
+
+// Account class implements Bank interface
+class Account implements Bank {
+    private double balance;
+
+    // Constructor to initialize balance
+    public Account(double initialBalance) {
+        this.balance = initialBalance;
+    }
+
+    // Override the deposit method
+    @Override
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
+        } else {
+            System.out.println("Invalid deposit amount!");
+        }
+    }
+
+    // Override the withdraw method
+    @Override
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrew: " + amount);
+        } else if (amount > balance) {
+            System.out.println("Insufficient funds for withdrawal!");
+        } else {
+            System.out.println("Invalid withdrawal amount!");
+        }
+    }
+
+    // Method to display current balance
+    public void displayBalance() {
+        System.out.println("Current Balance: " + balance);
+    }
+}
+
+// BankDemo class with the main method to test the functionality
+public class BankDemo {
+    public static void main(String[] args) {
+        // Create an Account object with an initial balance of 1000
+        Account account = new Account(1000.0);
+
+        // Display initial balance
+        account.displayBalance();
+
+        // Deposit 500 into the account
+        account.deposit(500.0);
+
+        // Display updated balance
+        account.displayBalance();
+
+        // Withdraw 200 from the account
+        account.withdraw(200.0);
+
+        // Display updated balance after withdrawal
+        account.displayBalance();
+
+        // Try withdrawing an invalid amount (greater than the current balance)
+        account.withdraw(2000.0);
+
+        // Display final balance
+        account.displayBalance();
+    }
+}
