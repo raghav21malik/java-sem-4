@@ -1,0 +1,41 @@
+// Interface Playable
+interface Playable {
+    void play();   // Method to play the music
+    void pause();  // Method to pause the music
+    void stop();   // Method to stop the music
+}
+
+// MusicPlayer class implementing Playable interface
+class MusicPlayer implements Playable {
+    
+    // Override the play method
+    @Override
+    public void play() {
+        System.out.println("Music is playing.");
+    }
+
+    // Override the pause method
+    @Override
+    public void pause() {
+        System.out.println("Music is paused.");
+    }
+
+    // Override the stop method
+    @Override
+    public void stop() {
+        System.out.println("Music is stopped.");
+    }
+}
+
+// TestPlayer class with the main method to test the functionality
+public class TestPlayer {
+    public static void main(String[] args) {
+        // Create a MusicPlayer object
+        MusicPlayer player = new MusicPlayer();
+        
+        // Call play(), pause(), and stop() methods
+        player.play();   // Expected output: "Music is playing."
+        player.pause();  // Expected output: "Music is paused."
+        player.stop();   // Expected output: "Music is stopped."
+    }
+}
